@@ -1,0 +1,14 @@
+version: "3.1"
+stories:
+  - story: Order status query
+    steps:
+      - intent: order_status
+      - action: utter_ask_order_id
+  - story: Cancel order query
+    steps:
+      - intent: cancel_order
+      - action: utter_ask_order_id
+  - story: Greeting
+    steps:
+      - intent: greetings
+      - action: utter_greet

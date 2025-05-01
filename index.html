@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot Interface</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: montserrat, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background-image: linear-gradient(120deg, #3498db, #8e44ad);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chatbot-container {
+            width: 360px;
+            background: #f1f1f1;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .chatbot-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #chatOutput {
+            border: 2px solid #adadad;
+            border-radius: 5px;
+            padding: 10px;
+            height: 300px;
+            overflow-y: scroll;
+            margin-bottom: 20px;
+            font-size: 14px;
+            background: #fff;
+        }
+
+        .txtb {
+            margin: 20px 0;
+            position: relative;
+            border-bottom: 2px solid #adadad;
+        }
+
+        .txtb input {
+            font-size: 15px;
+            color: #333;
+            border: none;
+            width: 100%;
+            outline: none;
+            background: none;
+            padding: 5px;
+            height: 40px;
+        }
+
+        .txtb input::placeholder {
+            color: #adadad;
+            transition: .5s;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(120deg, #3498db, #8e44ad);
+            background-size: 200%;
+            color: #fff;
+            outline: none;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: .5s;
+        }
+
+        .btn:hover {
+            background-position: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="chatbot-container">
+        <h2>Chat with the Bot</h2>
+        <div id="chatOutput"></div>
+        <div class="txtb">
+            <input type="text" id="userMessage" placeholder="Type your message here">
+        </div>
+        <button class="btn" onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const message = document.getElementById('userMessage').value;
+            if (message.trim() === '') return;
+
+            const chatOutput = document.getElementById('chatOutput');
+            // Append the user's message to the output
+            chatOutput.innerHTML += `<p><strong>You:</strong> ${message}</p>`;
+            // Clear the input field
+            document.getElementById('userMessage').value = '';
+
+            // Simulated response for demonstration
+            setTimeout(() => {
+                chatOutput.innerHTML += `<p><strong>Bot:</strong> Hello, how can I help you?</p>`;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

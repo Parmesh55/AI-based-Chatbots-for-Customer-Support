@@ -1,0 +1,14 @@
+version: "3.1"
+intents:
+  - order_status
+  - cancel_order
+  - greetings
+
+entities:
+  - order_id
+
+responses:
+  utter_ask_order_id:
+    - text: "Could you please provide your order ID?"
+  utter_greet:
+    - text: "Hello there! How can I assist you today?"
